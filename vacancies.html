@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Darmon Service UZ • Vacancies</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/vacancies.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+</head>
+<body>
+
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Darmon Service UZ Home">
+      <img src="assets/images/logo.svg" alt="Darmon Service UZ logo">
+      <div>
+        <div class="title">Darmon Service UZ</div>
+        <div style="font-size:12px;color:var(--muted);font-weight:700" data-i18n="tagline">24/7 care • Home visit lab</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" data-nav="home" data-i18n="nav_home">Home</a>
+      <a href="about.html" data-nav="about" data-i18n="nav_about">About Us</a>
+      <a href="specialists.html" data-nav="specialists" data-i18n="nav_specialists">Specialists</a>
+      <a href="results.html" data-nav="results" data-i18n="nav_results">Lab Results</a>
+      <a href="contact.html" data-nav="contact" data-i18n="nav_contact">Contact</a>
+      <a href="vacancies.html" data-nav="vacancies" data-i18n="nav_vacancies">Vacancies</a>
+    </nav>
+
+    <div class="lang-switch">
+      <button class="btn ghost menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <select id="langSelect" aria-label="Language">
+        <option value="uz">O'zbek</option>
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="container" id="mobileNav" style="display:none;padding:0 0 12px 0">
+    <div class="card" style="padding:10px">
+      <div class="footer-links">
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About Us</a>
+        <a href="specialists.html" data-i18n="nav_specialists">Specialists</a>
+        <a href="results.html" data-i18n="nav_results">Lab Results</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        <a href="vacancies.html" data-i18n="nav_vacancies">Vacancies</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<main class="section">
+  <div class="container">
+    <span class="badge"><i class="fa-solid fa-briefcase"></i><span data-i18n="vac_badge">Vacancies</span></span>
+    <h1 style="margin:10px 0 10px" data-i18n="vac_title">Join our team</h1>
+    <p style="margin-top:0" data-i18n="vac_sub">Below are currently open positions. (If backend is running, these load from database.)</p>
+
+    <div class="vac-grid" id="vacGrid">
+      <div class="card vac-card">
+        <h3 data-i18n="vac_name1">Laboratory Nurse (Home Visits)</h3>
+        <p data-i18n="schedule_based">Schedule-based home sampling, patient care, strict hygiene.</p>
+        <ul>
+          <li data-i18n="experience">2+ years experience</li>
+          <li data-i18n="communication">Communication skills</li>
+          <li data-i18n="certificate">Certificate is a plus</li>
+        </ul>
+      </div>
+      <div class="card vac-card">
+        <h3 data-i18n="vac_name2">Reception / Call Center Operator</h3>
+        <p data-i18n="vac2_desc">24/7 shifts, call routing, appointment confirmations.</p>
+        <ul>
+          <li data-i18n="desc_1">Good Uzbek/Russian</li>
+          <li data-i18n="desc_2">Calm under pressure</li>
+          <li data-i18n="desc_3">Basic computer skills</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <img src="assets/images/logo.svg" alt="Logo" style="width:42px;height:42px">
+        <div>
+          <div style="font-weight:900">Darmon Service UZ</div>
+          <div style="color:var(--muted);font-weight:700" data-i18n="footer_sub">Modern clinic & home laboratory service</div>
+        </div>
+      </div>
+      <p style="margin:12px 0 0" data-i18n="footer_note">
+        Results, appointments, and friendly support — all in one place.
+      </p>
+    </div>
+    <div>
+      <h4 data-i18n="footer_links">Quick links</h4>
+      <div class="footer-links">
+        <a href="results.html" data-i18n="nav_results">Lab Results</a>
+        <a href="specialists.html" data-i18n="nav_specialists">Specialists</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <h4 data-i18n="footer_contact">Contact</h4>
+      <div class="footer-links">
+        <span><i class="fa-solid fa-phone"></i> +998 (90) 123-45-67</span>
+        <span data-i18n="works_247">Works 24/7</span>
+        <span><i class="fa-solid fa-location-dot"></i> Tashkent, Uzbekistan</span>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Darmon Service UZ</span>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+
+<script src="js/booking.js"></script>
+
+</body>
+</html>

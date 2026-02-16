@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Darmon Service UZ • Contact</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+</head>
+<body>
+
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Darmon Service UZ Home">
+      <img src="assets/images/logo.svg" alt="Darmon Service UZ logo">
+      <div>
+        <div class="title">Darmon Service UZ</div>
+        <div style="font-size:12px;color:var(--muted);font-weight:700" data-i18n="tagline">24/7 care • Home visit lab</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" data-nav="home" data-i18n="nav_home">Home</a>
+      <a href="about.html" data-nav="about" data-i18n="nav_about">About Us</a>
+      <a href="specialists.html" data-nav="specialists" data-i18n="nav_specialists">Specialists</a>
+      <a href="results.html" data-nav="results" data-i18n="nav_results">Lab Results</a>
+      <a href="contact.html" data-nav="contact" data-i18n="nav_contact">Contact</a>
+      <a href="vacancies.html" data-nav="vacancies" data-i18n="nav_vacancies">Vacancies</a>
+    </nav>
+
+    <div class="lang-switch">
+      <button class="btn ghost menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <select id="langSelect" aria-label="Language">
+        <option value="uz">O'zbek</option>
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="container" id="mobileNav" style="display:none;padding:0 0 12px 0">
+    <div class="card" style="padding:10px">
+      <div class="footer-links">
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About Us</a>
+        <a href="specialists.html" data-i18n="nav_specialists">Specialists</a>
+        <a href="results.html" data-i18n="nav_results">Lab Results</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        <a href="vacancies.html" data-i18n="nav_vacancies">Vacancies</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<main class="section">
+  <div class="container">
+    <span class="badge"><i class="fa-solid fa-location-dot"></i> <span data-i18n="contact_badge"> Contact us</span></span>
+    <h1 style="margin:10px 0 10px" data-i18n="contact_title">We are here 24/7</h1>
+    <p style="margin-top:0" data-i18n="contact_sub">Call us or leave your number — we will call you back at a convenient time.</p>
+
+    <div class="contact-grid">
+      <div class="card contact-card">
+        <h3 style="margin:0 0 8px" data-i18n="contact_info">Clinic info</h3>
+        <div class="grid" style="gap:10px">
+          <div><i class="fa-solid fa-phone"></i> <strong>+998 (90) 123-45-67</strong></div>
+          <div><i class="fa-solid fa-clock"></i> <span data-i18n="works_247">Works 24/7</span></div>
+          <div><i class="fa-solid fa-location-dot"></i> <span data-i18n="address_line"> Tashkent, Uzbekistan</span></div>
+        </div>
+
+        <div style="margin-top:16px">
+          <h3 style="margin:0 0 8px" data-i18n="callback_title">Request a call</h3>
+          <form id="callbackForm">
+            <div class="form-row">
+              <div>
+                <label data-i18n="name">Name</label>
+                <input name="first_name" required>
+              </div>
+              <div>
+                <label data-i18n="surname">Surname</label>
+                <input name="last_name" required>
+              </div>
+            </div>
+            <div class="form-row" style="margin-top:12px">
+              <div>
+                <label data-i18n="phone">Phone</label>
+                <input name="phone" required placeholder="+998 90 123 45 67">
+              </div>
+              <div>
+                <label data-i18n="preferred_time">Preferred time</label>
+                <input name="preferred_time" type="time" required>
+              </div>
+            </div>
+            <div style="margin-top:12px" class="form-actions">
+              <button class="btn primary" type="submit"> <span data-i18n="send">Send</span></button>
+              <span class="note" id="callbackMsg"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <div class="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6753.177111605048!2d69.19951897628256!3d41.28836220213147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8a2dc8aaab35%3A0xeb16b50e57685f3!2sDarmon%20Servis!5e1!3m2!1sru!2sit!4v1770738483206!5m2!1sru!2sit" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <img src="assets/images/logo.svg" alt="Logo" style="width:42px;height:42px">
+        <div>
+          <div style="font-weight:900">Darmon Service UZ</div>
+          <div style="color:var(--muted);font-weight:700" data-i18n="footer_sub">Modern clinic & home laboratory service</div>
+        </div>
+      </div>
+      <p style="margin:12px 0 0" data-i18n="footer_note">
+        Results, appointments, and friendly support — all in one place.
+      </p>
+    </div>
+    <div>
+      <h4 data-i18n="footer_links">Quick links</h4>
+      <div class="footer-links">
+        <a href="results.html" data-i18n="nav_results">Lab Results</a>
+        <a href="specialists.html" data-i18n="nav_specialists">Specialists</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <h4 data-i18n="footer_contact">Contact</h4>
+      <div class="footer-links">
+        <span><i class="fa-solid fa-phone"></i> +998 (90) 123-45-67</span>
+        <span data-i18n="works_247">Works 24/7</span>
+        <span><i class="fa-solid fa-location-dot"></i>  Tashkent, Uzbekistan</span>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Darmon Service UZ</span>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+
+<script src="js/booking.js"></script>
+
+</body>
+</html>

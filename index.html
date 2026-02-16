@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Darmon Service UZ • Home</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Darmon Service UZ Home">
+      <img src="assets/images/logo.svg" alt="Darmon Service UZ logo">
+      <div>
+        <div class="title">Darmon Service UZ</div>
+        <div style="font-size:12px;color:var(--muted);font-weight:700" data-i18n="tagline">24/7 care • Home visit lab</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" data-nav="home" data-i18n="nav_home">Home</a>
+      <a href="about.html" data-nav="about" data-i18n="nav_about">About Us</a>
+      <a href="specialists.html" data-nav="specialists" data-i18n="nav_specialists">Specialists</a>
+      <a href="results.html" data-nav="results" data-i18n="nav_results">Lab Results</a>
+      <a href="contact.html" data-nav="contact" data-i18n="nav_contact">Contact</a>
+      <a href="vacancies.html" data-nav="vacancies" data-i18n="nav_vacancies">Vacancies</a>
+    </nav>
+
+    <div class="lang-switch">
+      <button class="btn ghost menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <select id="langSelect" aria-label="Language">
+        <option value="uz">O'zbek</option>
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="container" id="mobileNav" style="display:none;padding:0 0 12px 0">
+    <div class="card" style="padding:10px">
+      <div class="footer-links">
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About Us</a>
+        <a href="specialists.html" data-i18n="nav_specialists">Specialists</a>
+        <a href="results.html" data-i18n="nav_results">Lab Results</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        <a href="vacancies.html" data-i18n="nav_vacancies">Vacancies</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="badge"><i class="fa-solid fa-stethoscope"></i> <span data-i18n="hero_badge">Trusted healthcare in Uzbekistan</span></span>
+        <h1 data-i18n="hero_title">Care that feels close — even when you are at home.</h1>
+        <p class="lead" data-i18n="hero_desc">
+          Darmon Service UZ is a modern clinic with a mobile laboratory service. Book a doctor, request a home blood test, and receive your results online.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="results.html"><i class="fa-solid fa-square-poll-horizontal"></i> <span data-i18n="btn_results">Get lab results</span></a>
+          <a class="btn" href="contact.html"><i class="fa-solid fa-location-dot"></i> <span data-i18n="btn_contact"> Contact & location</span></a>
+        </div>
+        <div class="hero-meta">
+          <span class="badge"><i class="fa-solid fa-hospital"></i> <span data-i18n="created_in">Created in</span> 2018</span>
+          <a class="badge" href="about.html"><i class="fa-solid fa-book-open"></i> <span data-i18n="read_more">Read more</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card lab-card">
+        <h3 data-i18n="lab_card_title">Lab results & appointments</h3>
+        <p data-i18n="lab_card_desc">
+          Log in to download your PDF results, or book an appointment with available specialists. For quick status, use Receipt ID + Date.
+        </p>
+        <div class="form-actions">
+          <a class="btn primary" href="results.html"><i class="fa-solid fa-square-poll-horizontal"></i> <span data-i18n="btn_open_results">Open Lab Results</span></a>
+          <a class="btn" href="results.html#quickcheck"><i class="fa-solid fa-stopwatch"></i> <span data-i18n="btn_quickcheck">Quick check</span></a>
+        </div>
+        <div class="lab-thumb" aria-hidden="true">
+          <img src="assets/images/lab.avif" alt="Laboratory placeholder image">
+        </div>
+        <p class="note" style="margin:10px 0 0">
+          <span class="small-link" data-open-guide="1" data-i18n="prep_guide">How to prepare for your blood test?</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card lab-card">
+        <h3 data-i18n="video_title">Home visit laboratory</h3>
+        <p data-i18n="video_desc">
+          See how our mobile lab comes to your doorstep. Professional care, without the commute.
+        </p>
+
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/-yzEg336qzM?autoplay=1&mute=1&loop=1&playlist=-yzEg336qzM&controls=1&rel=0"
+            title="Darmon Service UZ - Home Visit Lab"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+
+        <p class="video-caption" data-i18n="video_caption">
+          Our team arrives on time, uses sterile single-use materials, and delivers results to your account.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 style="margin:0 0 10px" data-i18n="benefits_title">Our benefits</h2>
+      <p style="margin-top:0" data-i18n="benefits_sub">Small details that make patients feel safe and cared for.</p>
+
+      <div class="benefits-grid">
+        <div class="card benefit">
+          <div class="icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <h4 data-i18n="b1_title">Working 24/7</h4>
+            <p data-i18n="b1_desc">Support, urgent advice, and lab scheduling any day.</p>
+          </div>
+        </div>
+        <div class="card benefit">
+          <div class="icon"><i class="fa-solid fa-users-line"></i></div>
+          <div>
+            <h4 data-i18n="b2_title">Family doctors</h4>
+            <p data-i18n="b2_desc">Care for adults and children with one trusted team.</p>
+          </div>
+        </div>
+        <div class="card benefit">
+          <div class="icon"><i class="fa-solid fa-square-check"></i></div>
+          <div>
+            <h4 data-i18n="b3_title">2,000,000+ patients trust</h4>
+            <p data-i18n="b3_desc">Experience built on real stories and results.</p>
+          </div>
+        </div>
+        <div class="card benefit">
+          <div class="icon"><i class="fa-solid fa-earth-americas"></i></div>
+          <div>
+            <h4 data-i18n="b4_title">International qualifications</h4>
+            <p data-i18n="b4_desc">Doctors who keep up with global standards.</p>
+          </div>
+        </div>
+        <div class="card benefit">
+          <div class="icon"><i class="fa-solid fa-vial"></i></div>
+          <div>
+            <h4 data-i18n="b5_title">Modern equipment</h4>
+            <p data-i18n="b5_desc">Accurate tests and comfortable procedures.</p>
+          </div>
+        </div>
+        <div class="card benefit">
+          <div class="icon"><i class="fa-solid fa-car-side"></i></div>
+          <div>
+            <h4 data-i18n="b6_title">Home-provided services</h4>
+            <p data-i18n="b6_desc">Mobile lab and nurse visits when you need it.</p>
+          </div>
+        </div>
+        <div class="card benefit">
+          <div class="icon"><i class="fa-solid fa-heart-circle-plus"></i></div>
+          <div>
+            <h4 data-i18n="b7_title">Polite & caring staff</h4>
+            <p data-i18n="b7_desc">We explain calmly, listen carefully, and act fast.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 style="margin:0 0 10px" data-i18n="metrics_title">Our numbers</h2>
+      <div class="metrics">
+        <div class="card metric">
+          <div class="num" data-count="2000000">0</div>
+          <div class="lbl" data-i18n="m1">Patients served</div>
+        </div>
+        <div class="card metric">
+          <div class="num" data-count="24">0</div>
+          <div class="lbl" data-i18n="m2">Hours support</div>
+        </div>
+        <div class="card metric">
+          <div class="num" data-count="60">0</div>
+          <div class="lbl" data-i18n="m3">Specialists & partners</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card" style="padding:18px">
+        <h3 style="margin:0 0 8px" data-i18n="doctors_preview_title">Meet some of our doctors</h3>
+        <p style="margin-top:0" data-i18n="doctors_preview_desc">A few faces you can book online.</p>
+
+        <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:14px">
+          <div class="card" style="padding:14px; background:#fff">
+            <div style="display:flex; gap:12px; align-items:center">
+              <div class="avatar"><img src="assets/images/doctor1.avif" alt="Doctor 1"></div>
+              <div>
+                <div style="font-weight:900">Dilshod Akhmedov</div>
+                <div style="color:var(--muted); font-weight:700" data-i18n="cardio">Cardiology • 9 years</div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="padding:14px; background:#fff">
+            <div style="display:flex; gap:12px; align-items:center">
+              <div class="avatar"><img src="assets/images/doctor2.avif" alt="Doctor 2"></div>
+              <div>
+                <div style="font-weight:900">Malika Karimova</div>
+                <div style="color:var(--muted); font-weight:700" data-i18n="lab">Laboratory • 7 years</div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="padding:14px; background:#fff">
+            <div style="display:flex; gap:12px; align-items:center">
+              <div class="avatar"><img src="assets/images/doctor3.avif" alt="Doctor 3"></div>
+              <div>
+                <div style="font-weight:900">Sardor Rakhimov</div>
+                <div style="color:var(--muted);font-weight:700" data-i18n="peds">Pediatrics • 6 years</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions" style="margin-top:14px">
+          <a class="btn primary" href="specialists.html"><span data-i18n="btn_all_specialists">All specialists</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <img src="assets/images/logo.svg" alt="Logo" style="width:42px;height:42px">
+        <div>
+          <div style="font-weight:900">Darmon Service UZ</div>
+          <div style="color:var(--muted);font-weight:700" data-i18n="footer_sub">Modern clinic & home laboratory service</div>
+        </div>
+      </div>
+      <p style="margin:12px 0 0" data-i18n="footer_note">
+        Results, appointments, and friendly support — all in one place.
+      </p>
+    </div>
+    <div>
+      <h4 data-i18n="footer_links">Quick links</h4>
+      <div class="footer-links">
+        <a href="results.html" data-i18n="nav_results">Lab Results</a>
+        <a href="specialists.html" data-i18n="nav_specialists">Specialists</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <h4 data-i18n="footer_contact">Contact</h4>
+      <div class="footer-links">
+        <span><i class="fa-solid fa-phone"></i> +998 (90) 123-45-67</span>
+        <span data-i18n="works_247">Works 24/7</span>
+        <span><i class="fa-solid fa-location-dot"></i> Tashkent, Uzbekistan</span>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Darmon Service UZ</span>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+
+<script src="js/booking.js"></script>
+</body>
+</html>

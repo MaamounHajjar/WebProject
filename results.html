@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Darmon Service UZ • Lab Results</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/results.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+</head>
+<body>
+
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Darmon Service UZ Home">
+      <img src="assets/images/logo.svg" alt="Darmon Service UZ logo">
+      <div>
+        <div class="title">Darmon Service UZ</div>
+        <div style="font-size:12px;color:var(--muted);font-weight:700" data-i18n="tagline">24/7 care • Home visit lab</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" data-nav="home" data-i18n="nav_home">Home</a>
+      <a href="about.html" data-nav="about" data-i18n="nav_about">About Us</a>
+      <a href="specialists.html" data-nav="specialists" data-i18n="nav_specialists">Specialists</a>
+      <a href="results.html" data-nav="results" data-i18n="nav_results">Lab Results</a>
+      <a href="contact.html" data-nav="contact" data-i18n="nav_contact">Contact</a>
+      <a href="vacancies.html" data-nav="vacancies" data-i18n="nav_vacancies">Vacancies</a>
+    </nav>
+
+    <div class="lang-switch">
+      <button class="btn ghost menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <select id="langSelect" aria-label="Language">
+        <option value="uz">O'zbek</option>
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="container" id="mobileNav" style="display:none;padding:0 0 12px 0">
+    <div class="card" style="padding:10px">
+      <div class="footer-links">
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About Us</a>
+        <a href="specialists.html" data-i18n="nav_specialists">Specialists</a>
+        <a href="results.html" data-i18n="nav_results">Lab Results</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        <a href="vacancies.html" data-i18n="nav_vacancies">Vacancies</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<main class="section">
+  <div class="container">
+    <span class="badge"><i class="fa-solid fa-square-poll-horizontal"></i> <span data-i18n="res_badge">Lab results & booking</span></span>
+    <h1 style="margin:10px 0 10px" data-i18n="res_title">Results, quick status, and appointments</h1>
+    <p style="margin-top:0" data-i18n="res_sub">
+      Quick Check works without login. Login/Registration is for downloading PDFs and booking appointments.
+    </p>
+
+    <div class="results-grid">
+      <div class="card panel" id="quickcheck">
+        <h3 style="margin:0 0 8px"><i class="fa-solid fa-stopwatch"></i> <span data-i18n="quickcheck_title">Quick check</span></h3>
+        <p class="note" data-i18n="quickcheck_note">Enter Receipt ID and Date to see if your result is Pending or Ready.</p>
+
+        <form id="quickCheckForm">
+          <div class="form-row">
+            <div>
+              <label data-i18n="receipt_id">Receipt ID</label>
+              <input name="receipt_id" required placeholder="DS-2026-00021">
+            </div>
+            <div>
+              <label data-i18n="date">Date</label>
+              <input name="date" type="date" required>
+            </div>
+          </div>
+          <div class="form-actions" style="margin-top:12px">
+            <button class="btn primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="check">Check</span></button>
+            <span class="note" id="quickCheckMsg"></span>
+          </div>
+        </form>
+
+        <div id="quickCheckResult" class="list"></div>
+      </div>
+
+      <div class="card panel" id="booking">
+        <div class="tabs">
+          <button class="tab active" data-tab="login" type="button" data-i18n="tab_login">Login</button>
+          <button class="tab" data-tab="register" type="button" data-i18n="tab_register">Register</button>
+          <button class="tab" data-tab="account" type="button" data-i18n="tab_account">My account</button>
+        </div>
+
+        <div id="tab-login">
+          <h3 style="margin:0 0 8px" data-i18n="login_title">Login</h3>
+          <form id="loginForm">
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="John@email.com">
+            <div style="margin-top:10px">
+              <label data-i18n="password">Password</label>
+              <input type="password" name="password" required>
+            </div>
+            <div class="form-actions" style="margin-top:12px">
+              <button class="btn primary" type="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span data-i18n="login">Login</span></button>
+              <span class="note" id="loginMsg"></span>
+            </div>
+          </form>
+        </div>
+
+        <div id="tab-register" class="hidden">
+          <h3 style="margin:0 0 8px" data-i18n="register_title">Create an account</h3>
+          <form id="registerForm">
+            <div class="form-row">
+              <div>
+                <label data-i18n="name">Name</label>
+                <input name="name" required>
+              </div>
+              <div>
+                <label data-i18n="phone">Phone</label>
+                <input name="phone" required placeholder="+998 90 123 45 67">
+              </div>
+            </div>
+            <div style="margin-top:10px">
+              <label>Email</label>
+              <input type="email" name="email" required placeholder="name@email.com">
+            </div>
+            <div style="margin-top:10px">
+              <label data-i18n="password">Password</label>
+              <input type="password" name="password" required minlength="6">
+            </div>
+            <div class="form-actions" style="margin-top:12px">
+              <button class="btn primary" type="submit"> <span data-i18n="register">Register</span></button>
+              <span class="note" id="registerMsg"></span>
+            </div>
+          </form>
+        </div>
+
+        <div id="tab-account" class="hidden">
+          <h3 style="margin:0 0 8px" data-i18n="account_title">My account</h3>
+          <p class="note" data-i18n="account_note">Here you can book appointments and download your results.</p>
+
+          <div class="card" style="padding:12px;background:#fff">
+            <h4 style="margin:0 0 10px" data-i18n="book_title">Book appointment</h4>
+            <form id="appointmentForm">
+              <div class="form-row">
+                <div>
+                  <label data-i18n="doctor">Doctor</label>
+                  <select name="doctor_id" id="doctorSelect"></select>
+                </div>
+                <div>
+                  <label data-i18n="date">Date</label>
+                  <input name="appointment_date" type="date" required>
+                </div>
+              </div>
+              <div style="margin-top:10px">
+                <label data-i18n="time_slot">Time slot</label>
+                <select name="time_slot">
+                  <option>09:00</option><option>10:00</option><option>11:00</option>
+                  <option>14:00</option><option>15:00</option><option>16:00</option>
+                </select>
+              </div>
+              <div class="form-actions" style="margin-top:12px">
+                <button class="btn primary" type="submit"><i class="fa-regular fa-calendar-days"></i> <span data-i18n="book">Book</span></button>
+                <span class="note" id="apptMsg"></span>
+              </div>
+            </form>
+          </div>
+
+          <div class="card" style="padding:12px;background:#fff;margin-top:12px">
+            <h4 style="margin:0 0 10px" data-i18n="my_results">My results</h4>
+            <div id="myResults" class="list"></div>
+          </div>
+
+          <div class="form-actions" style="margin-top:12px">
+            <button class="btn" id="logoutBtn" type="button" style="color: black;"> <span data-i18n="logout">Logout</span></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <img src="assets/images/logo.svg" alt="Logo" style="width:42px;height:42px">
+        <div>
+          <div style="font-weight:900">Darmon Service UZ</div>
+          <div style="color:var(--muted);font-weight:700" data-i18n="footer_sub">Modern clinic & home laboratory service</div>
+        </div>
+      </div>
+      <p style="margin:12px 0 0" data-i18n="footer_note">
+        Results, appointments, and friendly support — all in one place.
+      </p>
+    </div>
+    <div>
+      <h4 data-i18n="footer_links">Quick links</h4>
+      <div class="footer-links">
+        <a href="results.html" data-i18n="nav_results">Lab Results</a>
+        <a href="specialists.html" data-i18n="nav_specialists">Specialists</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <h4 data-i18n="footer_contact">Contact</h4>
+      <div class="footer-links">
+        <span><i class="fa-solid fa-phone"></i> +998 (90) 123-45-67</span>
+        <span data-i18n="works_247">Works 24/7</span>
+        <span><i class="fa-solid fa-location-dot"></i> Tashkent, Uzbekistan</span>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Darmon Service UZ</span>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+
+<script src="js/booking.js"></script>
+
+</body>
+</html>
