@@ -1,0 +1,63 @@
+.filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: end;
+}
+.filters .field {
+  min-width: 220px;
+}
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+.doctor-card {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+.doctor-card .top {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.doctors{
+  object-position: center -50px;
+}
+.doctor5{
+  object-position: center -10px;  
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.doctor-card h3 {
+  margin: 0;
+}
+.doctor-card .meta {
+  color: var(--muted);
+  font-weight: 700;
+}
+.tag {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 12px;
+}
+@media (max-width: 900px) {
+  .doctor-grid {
+    grid-template-columns: 1fr;
+  }
+}

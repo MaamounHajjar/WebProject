@@ -1,0 +1,37 @@
+.about-hero {
+  padding: 28px 0 10px;
+}
+.about-hero h1 {
+  margin: 10px 0 10px;
+  font-size: 40px;
+  line-height: 1.1;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.about-grid .shot {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+.story {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 16px;
+  align-items: start;
+}
+.story .card {
+  padding: 18px;
+}
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .story {
+    grid-template-columns: 1fr;
+  }
+}
