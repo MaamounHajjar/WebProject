@@ -3,3 +3,8 @@
 .DS_Store
 backend/python/.venv/
 backend/python/error.log
+.DS_Store
+__pycache__/
+*.pyc
+.env
+backend/python/.venv/
