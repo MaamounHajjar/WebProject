@@ -12,18 +12,24 @@ INSERT INTO doctors(full_name,specialty,department_id,experience_years,bio,image
  ('Javlon Ismoilov','Therapy',(SELECT id FROM departments WHERE name='Therapy'),11,'General adult care and follow-up.','assets/images/doctor6.svg')
 ON DUPLICATE KEY UPDATE full_name=VALUES(full_name);
 
--- Demo admin / patient (password: Demo123!)
+-- Demo staff / patient accounts (password: Demo123!)
 INSERT INTO users(name,phone,email,password_hash,role)
 VALUES
  ('Admin','+998901111111','admin@darmon.uz','$2y$10$H0LA6.j.vdFvoyzsfEg/vusRRuZPlrR0q0K5CTOM28ljN1Y1dWdwG','admin'),
+ ('Reception Desk','+998903333333','reception@darmon.uz','$2y$10$H0LA6.j.vdFvoyzsfEg/vusRRuZPlrR0q0K5CTOM28ljN1Y1dWdwG','reception'),
+ ('Dr. Dilshod Akhmedov','+998904444444','doctor@darmon.uz','$2y$10$H0LA6.j.vdFvoyzsfEg/vusRRuZPlrR0q0K5CTOM28ljN1Y1dWdwG','doctor'),
  ('Aziza Patient','+998902222222','patient@darmon.uz','$2y$10$H0LA6.j.vdFvoyzsfEg/vusRRuZPlrR0q0K5CTOM28ljN1Y1dWdwG','patient')
-ON DUPLICATE KEY UPDATE email=VALUES(email);
+ON DUPLICATE KEY UPDATE
+  name=VALUES(name),
+  phone=VALUES(phone),
+  password_hash=VALUES(password_hash),
+  role=VALUES(role);
 
 -- Lab result demo for patient (receipt DS-2026-00021)
 INSERT INTO lab_results(user_id,receipt_id,test_name,status,sample_date,upload_date,file_path)
 VALUES
  ((SELECT id FROM users WHERE email='patient@darmon.uz'),'DS-2026-00021','Blood panel','Pending','2026-01-10',NULL,NULL),
- ((SELECT id FROM users WHERE email='patient@darmon.uz'),'DS-2026-00022','Biochemistry','Ready','2026-01-08','2026-01-09','backend/php/files/sample_result.pdf')
+ ((SELECT id FROM users WHERE email='patient@darmon.uz'),'DS-2026-00022','Biochemistry','Ready','2026-01-08','2026-01-09','backend/files/sample_result.pdf')
 ON DUPLICATE KEY UPDATE test_name=VALUES(test_name);
 
 INSERT INTO vacancies(title,description,requirements,is_active) VALUES

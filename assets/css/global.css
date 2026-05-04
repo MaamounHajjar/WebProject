@@ -216,6 +216,29 @@ label {
   flex-wrap: wrap;
 }
 
+.auth-helper-row {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.link-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--brand);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .nav {
@@ -230,15 +253,4 @@ label {
   .form-row {
     grid-template-columns: 1fr;
   }
-}
-
-button {
-  background-color: black;
-  color: white;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  background-color: white;
-  color: black;
 }

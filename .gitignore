@@ -1,0 +1,5 @@
+.env
+.idea/
+.DS_Store
+backend/python/.venv/
+backend/python/error.log

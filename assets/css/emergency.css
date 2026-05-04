@@ -1,0 +1,30 @@
+.emergency-page {
+    padding: 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.emergency-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+@media (min-width: 840px) {
+  .emergency-panel {
+    grid-template-columns: 320px 1fr;
+  }
+}
+
+.emergency-card {
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: var(--shadow-light);
+}
+
+#map {
+  height: 480px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+}
