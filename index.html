@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
 </head>
 <body>
 
@@ -29,6 +28,7 @@
       <a href="results.html" data-nav="results" data-i18n="nav_results">Lab Results</a>
       <a href="contact.html" data-nav="contact" data-i18n="nav_contact">Contact</a>
       <a href="vacancies.html" data-nav="vacancies" data-i18n="nav_vacancies">Vacancies</a>
+      <a href="emergency.html" data-nav="emergency" data-i18n="nav_emergency">Emergency</a>
     </nav>
 
     <div class="lang-switch">
@@ -81,7 +81,7 @@
       <div class="card lab-card">
         <h3 data-i18n="lab_card_title">Lab results & appointments</h3>
         <p data-i18n="lab_card_desc">
-          Log in to download your PDF results, or book an appointment with available specialists. For quick status, use Receipt ID + Date.
+          Log in to download your PDF results, or book an appointment with ˜available specialists. For quick status, use Receipt ID + Date.
         </p>
         <div class="form-actions">
           <a class="btn primary" href="results.html"><i class="fa-solid fa-square-poll-horizontal"></i> <span data-i18n="btn_open_results">Open Lab Results</span></a>
@@ -207,7 +207,7 @@
         <h3 style="margin:0 0 8px" data-i18n="doctors_preview_title">Meet some of our doctors</h3>
         <p style="margin-top:0" data-i18n="doctors_preview_desc">A few faces you can book online.</p>
 
-        <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:14px">
+        <div class="grid doctors-grid">
           <div class="card" style="padding:14px; background:#fff">
             <div style="display:flex; gap:12px; align-items:center">
               <div class="avatar"><img src="assets/images/doctor1.avif" alt="Doctor 1"></div>
@@ -217,6 +217,7 @@
               </div>
             </div>
           </div>
+
           <div class="card" style="padding:14px; background:#fff">
             <div style="display:flex; gap:12px; align-items:center">
               <div class="avatar"><img src="assets/images/doctor2.avif" alt="Doctor 2"></div>
@@ -226,6 +227,7 @@
               </div>
             </div>
           </div>
+
           <div class="card" style="padding:14px; background:#fff">
             <div style="display:flex; gap:12px; align-items:center">
               <div class="avatar"><img src="assets/images/doctor3.avif" alt="Doctor 3"></div>
@@ -282,8 +284,8 @@
     <span>© <span id="year"></span> Darmon Service UZ</span>
   </div>
 </footer>
-<script src="js/main.js"></script>
-
-<script src="js/booking.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/core.js"></script>
+<script src="js/pages/home.js"></script>
 </body>
 </html>

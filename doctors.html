@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Darmon Service UZ Doctors Interface</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/doctors.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="doctor-page">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Darmon Service UZ Home">
+      <img src="assets/images/logo.svg" alt="Darmon Service UZ logo">
+      <div>
+        <div class="title">Darmon Service UZ</div>
+        <div style="font-size:12px;color:var(--muted);font-weight:700">Doctor operations workspace</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Doctor navigation">
+      <a href="doctors.html" data-nav="doctors" class="active">Doctors Workspace</a>
+    </nav>
+
+    <div class="lang-switch">
+      <button class="btn ghost menu-btn" id="menuBtn" aria-label="Menu">â˜°</button>
+    </div>
+  </div>
+
+  <div class="container" id="mobileNav" style="display:none;padding:0 0 12px 0">
+    <div class="card" style="padding:10px">
+      <div class="footer-links">
+        <a href="doctors.html">Doctors Workspace</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section doctor-auth-section" id="doctorAuthSection">
+    <div class="container doctor-auth-grid">
+      <section class="card admin-panel" id="doctorLoginPanel">
+        <span class="badge"><i class="fa-solid fa-user-doctor"></i> Doctor Access</span>
+        <h2>Doctor login</h2>
+        <p class="note">Doctor accounts use the shared staff login page and are then routed back to this workspace.</p>
+        <form id="doctorLoginForm">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="doctor@darmon.uz" required>
+
+          <div style="margin-top:12px">
+            <label>Password</label>
+            <input type="password" name="password" required>
+          </div>
+
+          <div class="auth-helper-row">
+            <span class="note"></span>
+            <button class="link-button" id="doctorForgotPasswordBtn" type="button">Forgot password?</button>
+          </div>
+
+          <div class="form-actions" style="margin-top:14px">
+            <button class="btn primary" type="submit">Sign in</button>
+            <span class="note" id="doctorLoginMsg"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="card admin-panel hidden" id="doctorOtpPanel">
+        <span class="badge"><i class="fa-solid fa-shield-halved"></i> Verification</span>
+        <h2>Doctor OTP verification</h2>
+        <p class="note">Enter the 6-digit code sent to your email.</p>
+        <form id="doctorOtpForm">
+          <label>OTP code</label>
+          <input type="text" name="otp" inputmode="numeric" maxlength="6" placeholder="123456" required>
+
+          <div class="form-actions" style="margin-top:14px">
+            <button class="btn primary" type="submit">Verify</button>
+            <button class="btn" id="doctorOtpBackBtn" type="button">Back</button>
+            <span class="note" id="doctorOtpMsg"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="card admin-panel hidden" id="doctorRecoverPanel">
+        <span class="badge"><i class="fa-solid fa-envelope"></i> Recovery</span>
+        <h2>Recover password</h2>
+        <p class="note">Enter the email linked to your doctor account. A one-time code will be sent there.</p>
+        <form id="doctorRecoverForm">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="doctor@darmon.uz" required>
+
+          <div class="form-actions" style="margin-top:14px">
+            <button class="btn primary" type="submit">Send OTP</button>
+            <button class="btn" id="doctorRecoverBackBtn" type="button">Back</button>
+            <span class="note" id="doctorRecoverMsg"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="card admin-panel hidden" id="doctorResetPanel">
+        <span class="badge"><i class="fa-solid fa-key"></i> Reset</span>
+        <h2>Set a new password</h2>
+        <p class="note">Enter a new password twice. It must be different from the old password.</p>
+        <form id="doctorResetForm">
+          <label>New password</label>
+          <input type="password" name="password" minlength="8" required>
+
+          <div style="margin-top:12px">
+            <label>Confirm new password</label>
+            <input type="password" name="confirm_password" minlength="8" required>
+          </div>
+
+          <div class="form-actions" style="margin-top:14px">
+            <button class="btn primary" type="submit">Update password</button>
+            <button class="btn" id="doctorResetBackBtn" type="button">Back</button>
+            <span class="note" id="doctorResetMsg"></span>
+          </div>
+        </form>
+      </section>
+    </div>
+  </section>
+
+  <div id="doctorWorkspace" class="hidden">
+    <section class="section" style="padding-top: 10px; padding-bottom: 10px">
+      <div class="container doctor-shell">
+        <aside class="card doctor-left-rail">
+          <div class="rail-top">
+            <span class="badge"><i class="fa-solid fa-user-doctor"></i> Doctors Workspace</span>
+            <div class="rail-actions">
+              <button class="btn" id="doctorLogoutBtn" type="button"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+          </div>
+
+          <div class="sidebar-block">
+            <span class="panel-label">Sections</span>
+            <h2>Clinical teams</h2>
+            <div class="section-nav" id="doctorSectionNav">
+              <button class="section-tab active" type="button" data-section="general">General doctors</button>
+              <button class="section-tab" type="button" data-section="emergency">Emergency doctors</button>
+            </div>
+          </div>
+
+          <div class="sidebar-block">
+            <span class="panel-label">Patient search</span>
+            <h3>Find and open profile</h3>
+            <form id="patientSearchForm" class="directory-search">
+              <input id="patientSearchInput" type="text" placeholder="Search by name or surname">
+            </form>
+            <div class="patient-list" id="patientList"></div>
+          </div>
+        </aside>
+
+        <div class="doctor-stage">
+          <section class="card workspace-topbar">
+            <div>
+              <span class="panel-label">Workspace</span>
+              <h3>General doctor panel</h3>
+            </div>
+          </section>
+
+          <section class="card workspace-summary">
+            <div>
+              <span class="panel-label">Selected section</span>
+              <h3 id="currentSectionHeading">General doctors</h3>
+            </div>
+            <div>
+              <span class="panel-label">Selected patient</span>
+              <strong id="selectedPatientHeading">Choose a patient</strong>
+            </div>
+            <div>
+              <span class="panel-label">Today's queue</span>
+              <strong id="todayQueueCount">0 scheduled</strong>
+            </div>
+          </section>
+
+          <section class="patient-workspace-grid">
+            <article class="card dashboard-card">
+              <div class="card-head">
+                <div>
+                  <span class="panel-label">Alerts</span>
+                  <h3>Current flags</h3>
+                </div>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+              </div>
+              <div class="alert-list" id="alertList"></div>
+            </article>
+
+            <article class="card dashboard-card">
+              <div class="card-head">
+                <div>
+                  <span class="panel-label">Live vitals</span>
+                  <h3>Sensors</h3>
+                </div>
+                <i class="fa-solid fa-heart-pulse"></i>
+              </div>
+              <div class="sensor-grid" id="sensorGrid"></div>
+            </article>
+
+            <article class="card dashboard-card">
+              <div class="card-head">
+                <div>
+                  <span class="panel-label">Patient info</span>
+                  <h3>Profile</h3>
+                </div>
+                <i class="fa-solid fa-notes-medical"></i>
+              </div>
+              <div class="key-value-list" id="patientInfoList"></div>
+            </article>
+
+            <article class="card dashboard-card">
+              <div class="card-head">
+                <div>
+                  <span class="panel-label">Predictions</span>
+                  <h3>Risk and ETA</h3>
+                </div>
+                <i class="fa-solid fa-brain"></i>
+              </div>
+              <div class="prediction-summary">
+                <div class="prediction-pill">
+                  <span>Risk score</span>
+                  <strong id="riskScore">0%</strong>
+                </div>
+                <div class="prediction-pill">
+                  <span>Risk level</span>
+                  <strong id="riskLabel">-</strong>
+                </div>
+                <div class="prediction-pill">
+                  <span>ETA</span>
+                  <strong id="etaMinutes">0 min</strong>
+                </div>
+              </div>
+              <div class="eta-drivers" id="etaDrivers"></div>
+            </article>
+
+            <article class="card dashboard-card">
+              <div class="card-head">
+                <div>
+                  <span class="panel-label">Patient history</span>
+                  <h3>Visits and tests</h3>
+                </div>
+                <i class="fa-solid fa-clock-rotate-left"></i>
+              </div>
+              <div class="history-list" id="historyContent"></div>
+            </article>
+
+            <article class="card dashboard-card">
+              <div class="card-head">
+                <div>
+                  <span class="panel-label">Environment Context</span>
+                  <h3>Context</h3>
+                </div>
+                <i class="fa-solid fa-wind"></i>
+              </div>
+              <div class="environment-list" id="environmentList"></div>
+            </article>
+
+            <article class="card dashboard-card">
+              <div class="card-head">
+                <div>
+                  <span class="panel-label">Doctor prescription</span>
+                  <h3>Medication, diagnosis, tests</h3>
+                </div>
+                <i class="fa-solid fa-prescription-bottle-medical"></i>
+              </div>
+              <form id="patientPlanForm" class="patient-plan-form">
+                <label>Diagnosis</label>
+                <textarea name="diagnosis" rows="3" placeholder="Write the diagnosis"></textarea>
+
+                <label>Medications</label>
+                <textarea name="medications" rows="3" placeholder="Write medications and dosage"></textarea>
+
+                <label>Status</label>
+                <select name="patient_status">
+                  <option value="stable">Stable</option>
+                  <option value="under_observation" selected>Under observation</option>
+                  <option value="needs_tests">Needs tests</option>
+                  <option value="critical">Critical</option>
+                  <option value="discharged">Discharged</option>
+                </select>
+
+                <label class="checkbox-line">
+                  <input type="checkbox" name="blood_test_required">
+                  <span>Send patient to blood test</span>
+                </label>
+
+                <label>Blood test note</label>
+                <textarea name="blood_test_note" rows="2" placeholder="Required tests or lab instructions"></textarea>
+
+                <label>Doctor note</label>
+                <textarea name="doctor_note" rows="4" placeholder="Clinical note and follow-up plan"></textarea>
+
+                <div class="form-actions">
+                  <button class="btn primary" type="submit">Save plan</button>
+                  <span class="note" id="patientPlanMsg"></span>
+                </div>
+              </form>
+            </article>
+          </section>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <span><span id="year"></span> Darmon Service UZ Doctor Workspace</span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/core.js"></script>
+<script src="js/pages/doctor/state.js"></script>
+<script src="js/pages/doctor/ui.js"></script>
+<script src="js/pages/doctor/live-monitor.js"></script>
+<script src="js/pages/doctor/plan.js"></script>
+<script src="js/pages/doctor/patients.js"></script>
+<script src="js/pages/doctor/auth.js"></script>
+<script src="js/pages/doctors.js"></script>
+</body>
+</html>

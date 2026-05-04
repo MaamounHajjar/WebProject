@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Darmon Service UZ • Staff Portal</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Darmon Service UZ Home">
+      <img src="assets/images/logo.svg" alt="Darmon Service UZ logo">
+      <div>
+        <div class="title">Darmon Service UZ</div>
+        <div style="font-size:12px;color:var(--muted);font-weight:700">Staff portal</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="results.html">Lab Results</a>
+      <a href="contact.html">Contact</a>
+      <a href="vacancies.html">Vacancies</a>
+      <a href="admin.html" class="active">Staff</a>
+    </nav>
+
+    <div class="lang-switch">
+      <button class="btn ghost menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+  </div>
+
+  <div class="container" id="mobileNav" style="display:none;padding:0 0 12px 0">
+    <div class="card" style="padding:10px">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="results.html">Lab Results</a>
+        <a href="contact.html">Contact</a>
+        <a href="vacancies.html">Vacancies</a>
+        <a href="admin.html">Staff</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container admin-shell">
+    <div class="admin-intro">
+      <span class="badge"><i class="fa-solid fa-shield-halved"></i> Staff</span>
+      <h1 id="staffHeading">Portal</h1>
+      <p id="staffIntro">Admin, reception, and doctor accounts sign in here. Each role is routed to the workspace allowed for that account.</p>
+    </div>
+
+    <div class="admin-grid">
+      <section class="card admin-panel" id="loginPanel">
+        <h2>Staff login</h2>
+        <p class="note">Use any staff account here. Doctor accounts are redirected to the doctor workspace after sign-in.</p>
+        <form id="adminLoginForm">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="admin@darmon.uz, reception@darmon.uz, or doctor@darmon.uz" required>
+
+          <div style="margin-top:12px">
+            <label>Password</label>
+            <input type="password" name="password" required>
+          </div>
+
+          <div class="auth-helper-row">
+            <span class="note"></span>
+            <button class="link-button" id="adminForgotPasswordBtn" type="button">Forgot password?</button>
+          </div>
+
+          <div class="form-actions" style="margin-top:14px">
+            <button class="btn primary" type="submit">Sign in</button>
+            <span class="note" id="adminLoginMsg"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="card admin-panel hidden" id="otpPanel">
+        <h2>OTP verification</h2>
+        <p class="note">Enter the 6-digit code sent to your email.</p>
+        <form id="adminOtpForm">
+          <label>OTP code</label>
+          <input type="text" name="otp" inputmode="numeric" maxlength="6" placeholder="123456" required>
+
+          <div class="form-actions" style="margin-top:14px">
+            <button class="btn primary" type="submit">Verify</button>
+            <button class="btn" id="adminOtpBackBtn" type="button">Back</button>
+            <span class="note" id="adminOtpMsg"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="card admin-panel hidden" id="recoverPanel">
+        <h2>Recover password</h2>
+        <p class="note">Enter the email linked to your staff account. A one-time code will be sent there, including for doctor accounts.</p>
+        <form id="adminRecoverForm">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="admin@darmon.uz, reception@darmon.uz, or doctor@darmon.uz" required>
+
+          <div class="form-actions" style="margin-top:14px">
+            <button class="btn primary" type="submit">Send OTP</button>
+            <button class="btn" id="adminRecoverBackBtn" type="button">Back</button>
+            <span class="note" id="adminRecoverMsg"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="card admin-panel hidden" id="resetPanel">
+        <h2>Set a new password</h2>
+        <p class="note">Enter a new password twice. It must be different from the old password.</p>
+        <form id="adminResetForm">
+          <label>New password</label>
+          <input type="password" name="password" minlength="8" required>
+
+          <div style="margin-top:12px">
+            <label>Confirm new password</label>
+            <input type="password" name="confirm_password" minlength="8" required>
+          </div>
+
+          <div class="form-actions" style="margin-top:14px">
+            <button class="btn primary" type="submit">Update password</button>
+            <button class="btn" id="adminResetBackBtn" type="button">Back</button>
+            <span class="note" id="adminResetMsg"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="admin-dashboard hidden" id="adminDashboard">
+        <div class="admin-toolbar">
+          <button class="btn" id="adminLogoutBtn" type="button">Logout</button>
+        </div>
+
+        <div class="stats-grid" id="adminStats"></div>
+
+        <div class="dashboard-sections">
+          <section class="card admin-panel">
+            <h3>Book for a patient</h3>
+            <p class="note">Reception-style booking for clinic visits.</p>
+            <form id="adminBookingForm" class="admin-booking-form">
+              <div class="form-row">
+                <div>
+                  <label>Patient mode</label>
+                  <select id="patientModeSelect" name="patient_mode">
+                    <option value="existing">Existing patient</option>
+                    <option value="new">New patient</option>
+                  </select>
+                </div>
+              </div>
+
+              <div id="existingPatientFields" style="margin-top:12px">
+                <label>Patient</label>
+                <select id="adminPatientSelect" name="patient_id" required></select>
+              </div>
+
+              <div id="newPatientFields" class="hidden" style="margin-top:12px">
+                <div class="form-row">
+                  <div>
+                    <label>Name</label>
+                    <input name="new_patient_name">
+                  </div>
+                  <div>
+                    <label>Phone</label>
+                    <input name="new_patient_phone" placeholder="+998901234567">
+                  </div>
+                </div>
+                <div class="form-row" style="margin-top:12px">
+                  <div>
+                    <label>Email</label>
+                    <input type="email" name="new_patient_email">
+                  </div>
+                  <div>
+                    <label>Password</label>
+                    <input type="password" name="new_patient_password" minlength="8">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div>
+                  <label>Doctor</label>
+                  <select id="adminDoctorSelect" name="doctor_id" required></select>
+                </div>
+                <div></div>
+              </div>
+              <div class="form-row" style="margin-top:12px">
+                <div>
+                  <label>Date</label>
+                  <input type="date" name="appointment_date" required>
+                </div>
+                <div>
+                  <label>Time slot</label>
+                  <select name="time_slot" required>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-actions" style="margin-top:14px">
+                <button class="btn primary" type="submit">Book appointment</button>
+                <span class="note" id="adminBookingMsg"></span>
+              </div>
+            </form>
+          </section>
+
+          <section class="card admin-panel">
+            <h3>Callback requests</h3>
+            <div class="table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Preferred time</th>
+                    <th>Created</th>
+                  </tr>
+                </thead>
+                <tbody id="callbacksBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card admin-panel">
+            <h3>Appointments</h3>
+            <div class="table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Patient</th>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                  </tr>
+                </thead>
+                <tbody id="appointmentsBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card admin-panel hidden" id="doctorManagementPanel">
+            <h3>Doctors</h3>
+            <p class="note">Create doctor accounts, keep profile details updated, and control who appears in booking.</p>
+            <form id="doctorForm" class="doctor-form">
+              <input type="hidden" name="id">
+              <div class="form-row">
+                <div>
+                  <label>Full name</label>
+                  <input name="full_name" required>
+                </div>
+                <div>
+                  <label>Specialty</label>
+                  <input name="specialty" required>
+                </div>
+              </div>
+              <div class="form-row" style="margin-top:12px">
+                <div>
+                  <label>Department</label>
+                  <input name="department_name" list="departmentOptions" placeholder="Cardiology">
+                  <datalist id="departmentOptions"></datalist>
+                </div>
+                <div>
+                  <label>Experience years</label>
+                  <input type="number" name="experience_years" min="0" value="0" required>
+                </div>
+              </div>
+              <div class="form-row" style="margin-top:12px">
+                <div>
+                  <label>Email</label>
+                  <input type="email" name="email" required>
+                </div>
+                <div>
+                  <label>Phone</label>
+                  <input name="phone" placeholder="+998901234567" required>
+                </div>
+              </div>
+              <div class="form-row" style="margin-top:12px">
+                <div>
+                  <label>Password</label>
+                  <input type="password" name="password" minlength="8" placeholder="Required for new doctor">
+                </div>
+                <div>
+                  <label>Status</label>
+                  <select name="is_active">
+                    <option value="1">Active</option>
+                    <option value="0">Inactive</option>
+                  </select>
+                </div>
+              </div>
+              <div style="margin-top:12px">
+                <label>Image URL</label>
+                <input name="image_url" placeholder="assets/images/doctor1.avif">
+              </div>
+              <div style="margin-top:12px">
+                <label>Bio</label>
+                <textarea name="bio" rows="4" placeholder="Education, treatment focus, consultation notes"></textarea>
+              </div>
+              <div class="form-actions" style="margin-top:14px">
+                <button class="btn primary" type="submit">Save doctor</button>
+                <button class="btn" id="doctorResetBtn" type="button">Clear</button>
+                <span class="note" id="doctorMsg"></span>
+              </div>
+            </form>
+            <div class="doctor-list" id="adminDoctors"></div>
+          </section>
+
+          <section class="card admin-panel" id="vacanciesPanel">
+            <h3>Vacancies</h3>
+            <form id="vacancyForm" class="vacancy-form">
+              <input type="hidden" name="id">
+              <div class="form-row">
+                <div>
+                  <label>Title</label>
+                  <input name="title" required>
+                </div>
+                <div>
+                  <label>Status</label>
+                  <select name="is_active">
+                    <option value="1">Active</option>
+                    <option value="0">Inactive</option>
+                  </select>
+                </div>
+              </div>
+              <div style="margin-top:12px">
+                <label>Description</label>
+                <textarea name="description" rows="3" required></textarea>
+              </div>
+              <div style="margin-top:12px">
+                <label>Requirements</label>
+                <textarea name="requirements" rows="4" required></textarea>
+              </div>
+              <div class="form-actions" style="margin-top:14px">
+                <button class="btn primary" type="submit">Save vacancy</button>
+                <button class="btn" id="vacancyResetBtn" type="button">Clear</button>
+                <span class="note" id="vacancyMsg"></span>
+              </div>
+            </form>
+            <div class="vacancy-list" id="adminVacancies"></div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Darmon Service UZ Staff Portal</span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/core.js"></script>
+<script src="js/pages/admin.js"></script>
+</body>
+</html>
