@@ -128,7 +128,7 @@ mysql -u root -p darmon_service < backend/sql/seed.sql
 
 ### 4. Install Python dependencies
 
-There is no `requirements.txt` in the repository right now, so install the packages used by the backend directly:
+Install the packages used by the backend directly:
 
 ```bash
 pip install fastapi uvicorn pymysql bcrypt motor pymongo requests geopy joblib scikit-learn
@@ -234,7 +234,3 @@ See [backend/python/api_actions.py](/Applications/XAMPP/xamppfiles/htdocs/darmon
 - CORS is restricted through `CORS_ALLOW_ORIGINS`
 - The sample lab PDF is stored in [backend/files/sample_result.pdf](/Applications/XAMPP/xamppfiles/htdocs/darmon_service_v1/backend/files/sample_result.pdf)
 - The ambulance ETA model is stored in [backend/files/ambulance_model.pkl](/Applications/XAMPP/xamppfiles/htdocs/darmon_service_v1/backend/files/ambulance_model.pkl)
-
-## Academic Context
-
-This repository also includes a longer write-up in [PROJECT_REPORT.md](/Applications/XAMPP/xamppfiles/htdocs/darmon_service_v1/PROJECT_REPORT.md), which documents the project goals, modules, and system roles in report format.
